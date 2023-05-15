@@ -1,4 +1,4 @@
-// import { authOptions } from "@/lib/auth";
+import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
 import Link from "next/link";
 import { ThemeToggle } from "./ThemeToggle";
@@ -7,7 +7,7 @@ import SignInButton from "./ui/SignInButton";
 import SignOutButton from "./ui/SignOutButton";
 
 const Navbar = async () => {
-  // const session = await getServerSession(authOptions);
+  const session = await getServerSession(authOptions);
 
   return (
     <div className="fixed backdrop-blur-sm bg-white dark:bg-slate-900 z-50 top-0 left-0 right-0 h-20 border-b border-slate-300 dark:border-slate-700 shadow-sm flex items-center justify-between">
@@ -28,7 +28,7 @@ const Navbar = async () => {
           >
             Documentation
           </Link>
-          {false ? (
+          {session ? (
             <>
               <Link
                 className={buttonVariants({ variant: "ghost" })}
