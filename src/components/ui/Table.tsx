@@ -25,7 +25,7 @@ const columnsDraft: GridColDef[] = [
     },
   },
   { field: "col2", headerName: "Path", width: 250 },
-  { field: "col3", headerName: "Recency", width: 250 },
+  { field: "col3", headerName: "Occur", width: 250 },
   { field: "col4", headerName: "Duration", width: 150 },
   { field: "col5", headerName: "Status", width: 150 },
   { field: "col6", headerName: "Text", width: 150 },

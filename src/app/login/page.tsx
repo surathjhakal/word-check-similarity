@@ -10,10 +10,12 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { toast } from "@/components/ui/toast";
+import { Loader2 } from "lucide-react";
 
 type Props = {};
 
 const Login = (props: Props) => {
+  const [isLoading, setIsLoading] = useState(false);
   const session = useSession();
   const router = useRouter();
   const [data, setData] = useState({
@@ -28,7 +30,9 @@ const Login = (props: Props) => {
 
   const loginUser = async (e: any) => {
     e.preventDefault();
+    setIsLoading(true);
     signIn("credentials", data).then((callback) => {
+      setIsLoading(false);
       if (callback?.error) {
         toast({ type: "error", message: callback.error });
       }
@@ -123,8 +127,11 @@ const Login = (props: Props) => {
               <div>
                 <button
                   type="submit"
-                  className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  className="flex w-full justify-center items-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
+                  {isLoading ? (
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  ) : null}
                   Sign in
                 </button>
               </div>

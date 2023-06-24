@@ -7,8 +7,10 @@ import Link from "next/link";
 import { buttonVariants } from "@/components/ui/Button";
 import Icons from "@/components/Icons";
 import LargeHeading from "@/components/ui/LargeHeading";
+import { Loader2 } from "lucide-react";
 
 export default function Register() {
+  const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -17,6 +19,7 @@ export default function Register() {
 
   const registerUser = async (e: any) => {
     e.preventDefault();
+    setIsLoading(true);
     const res = await fetch("/api/register/route", {
       method: "POST",
       body: JSON.stringify(data),
@@ -25,6 +28,7 @@ export default function Register() {
       },
     });
     const newData = (await res.json()) as { error?: string };
+    setIsLoading(false);
     if (newData.error) {
       toast.error(newData.error);
     } else {
@@ -145,8 +149,11 @@ export default function Register() {
                 <div>
                   <button
                     type="submit"
-                    className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    className="flex w-full justify-center items-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
+                    {isLoading ? (
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    ) : null}
                     Register
                   </button>
                 </div>
