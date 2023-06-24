@@ -3,16 +3,16 @@
 import { createApiKey } from "@/helpers/create-api-key";
 import { Key } from "lucide-react";
 import { FC, useState } from "react";
-import CopyButton from "./CopyButton";
-import { Button } from "./ui/Button";
-import { Input } from "./ui/Input";
-import LargeHeading from "./ui/LargeHeading";
-import Paragraph from "./ui/Paragraph";
-import { toast } from "./ui/toast";
+import CopyButton from "@/components/CopyButton";
+import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
+import LargeHeading from "@/components/ui/LargeHeading";
+import Paragraph from "@/components/ui/Paragraph";
+import { toast } from "@/components/ui/toast";
 
 interface RequestApiKeyProps {}
 
-const RequestApiKey: FC<RequestApiKeyProps> = ({}) => {
+const RequestApiKey = ({}: RequestApiKeyProps) => {
   const [isCreating, setIsCreating] = useState<boolean>(false);
   const [apiKey, setApiKey] = useState<string | null>(null);
 

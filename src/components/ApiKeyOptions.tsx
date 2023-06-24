@@ -12,15 +12,15 @@ import { revokeApiKey } from "@/helpers/revoke-api-key";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { FC, useState } from "react";
-import { Button } from "./ui/Button";
-import { toast } from "./ui/toast";
+import { Button } from "@/components/ui/Button";
+import { toast } from "@/components/ui/toast";
 
 interface ApiKeyOptionsProps {
   // passing of entire object not allowed due to date property not being serializable
   apiKeyKey: string;
 }
 
-const ApiKeyOptions: FC<ApiKeyOptionsProps> = ({ apiKeyKey }) => {
+const ApiKeyOptions = ({ apiKeyKey }: ApiKeyOptionsProps) => {
   const router = useRouter();
   const [isCreatingNew, setIsCreatingNew] = useState<boolean>(false);
   const [isRevoking, setIsRevoking] = useState<boolean>(false);

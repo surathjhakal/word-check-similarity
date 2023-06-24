@@ -16,7 +16,7 @@ const Documentation = (props: Props) => {
     <div className=" container max-w-full mx-auto mt-12 sm:pb-12 pb-0">
       <div className=" flex flex-col items-center gap-6">
         <LargeHeading>Making a request</LargeHeading>
-        <Paragraph>api/v1/similarity</Paragraph>
+        <Paragraph>api/app/similarity</Paragraph>
         <DocumentationTabs />
       </div>
     </div>

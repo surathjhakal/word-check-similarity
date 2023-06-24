@@ -2,8 +2,9 @@
 
 import { signIn } from "next-auth/react";
 import { useState } from "react";
-import { Button } from "./Button";
-import { toast } from "./toast";
+import { Button } from "@/components/ui/Button";
+import { toast } from "@/components/ui/toast";
+import Link from "next/link";
 
 /**
  * NextJS does not allow to pass function from server -> client components,
@@ -18,7 +19,7 @@ const SignInButton = ({}: SignInButtonProps) => {
   const signInWithGoogle = async () => {
     try {
       setIsLoading(true);
-      await signIn("google");
+      await signIn("");
     } catch (error) {
       toast({
         title: "Error signing in",
@@ -29,9 +30,9 @@ const SignInButton = ({}: SignInButtonProps) => {
   };
 
   return (
-    <Button onClick={signInWithGoogle} isLoading={isLoading}>
-      Sign in
-    </Button>
+    <Link href="/login">
+      <Button isLoading={isLoading}>Sign in</Button>
+    </Link>
   );
 };
 

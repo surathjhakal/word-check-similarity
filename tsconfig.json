@@ -24,9 +24,10 @@
       "@/styles/*": ["./src/styles/*"],
       "@/lib/*": ["./src/lib/*"],
       "@/components/*": ["./src/components/*"],
-      "@/ui/*": ["./src/components/ui/*"],
-      "@/api/*": ["./src/app/api/*"]
-    }
+      "@/api/*": ["./src/app/api/*"],
+      "@/types/*": ["./src/types/*"]
+    },
+    "strictNullChecks": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]

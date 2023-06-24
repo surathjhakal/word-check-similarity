@@ -1,15 +1,10 @@
-import { withMethods } from "@/lib/api-middlewares/with-methods";
-import { authOptions } from "@/lib/auth";
 import { db } from "@/lib/db";
-import { RevokeApiData } from "@/types/api/key";
 import { NextApiRequest, NextApiResponse } from "next";
 import { getServerSession } from "next-auth";
 import { z } from "zod";
+import { authOptions } from "../auth/[...nextauth]";
 
-const handler = async (
-  req: NextApiRequest,
-  res: NextApiResponse<RevokeApiData>
-) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const user = await getServerSession(req, res, authOptions).then(
       (res) => res?.user
@@ -49,4 +44,4 @@ const handler = async (
   }
 };
 
-export default withMethods(["POST"], handler);
+export default handler;

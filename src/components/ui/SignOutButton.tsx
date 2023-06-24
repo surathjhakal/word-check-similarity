@@ -2,8 +2,8 @@
 
 import { signOut } from "next-auth/react";
 import { FC, useState } from "react";
-import { Button } from "./Button";
-import { toast } from "./toast";
+import { Button } from "@/components/ui/Button";
+import { toast } from "@/components/ui/toast";
 
 /**
  * NextJS does not allow to pass function from server -> client components,

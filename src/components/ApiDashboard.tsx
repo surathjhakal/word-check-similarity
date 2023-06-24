@@ -1,13 +1,13 @@
-import { authOptions } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { formatDistance } from "date-fns";
 import { getServerSession } from "next-auth";
 import { notFound } from "next/navigation";
-import ApiKeyOptions from "./ApiKeyOptions";
-import { Input } from "./ui/Input";
-import LargeHeading from "./ui/LargeHeading";
-import Paragraph from "./ui/Paragraph";
-import Table from "./ui/Table";
+import ApiKeyOptions from "@/components/ApiKeyOptions";
+import { Input } from "@/components/ui/Input";
+import LargeHeading from "@/components/ui/LargeHeading";
+import Paragraph from "@/components/ui/Paragraph";
+import Table from "@/components/ui/Table";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
 const ApiDashboard = async ({}) => {
   const user = await getServerSession(authOptions);

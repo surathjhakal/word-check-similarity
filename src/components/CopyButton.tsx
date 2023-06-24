@@ -3,18 +3,14 @@
 import { cn } from "@/lib/utils";
 import { Copy } from "lucide-react";
 import { ButtonHTMLAttributes, FC } from "react";
-import { Button } from "./ui/Button";
-import { toast } from "./ui/toast";
+import { Button } from "@/components/ui/Button";
+import { toast } from "@/components/ui/toast";
 
 interface CopyButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   valueToCopy: string;
 }
 
-const CopyButton: FC<CopyButtonProps> = ({
-  valueToCopy,
-  className,
-  ...props
-}) => {
+const CopyButton = ({ valueToCopy, className, ...props }: CopyButtonProps) => {
   return (
     <Button
       {...props}

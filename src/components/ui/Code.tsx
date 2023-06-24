@@ -12,13 +12,13 @@ interface CodeProps {
   animated?: boolean;
 }
 
-const Code: FC<CodeProps> = ({
+const Code = ({
   code,
   show,
   animated,
   animationDelay,
   language,
-}) => {
+}: CodeProps) => {
   const { theme: applicationTheme } = useTheme();
   const [text, setText] = useState<string>(animated ? "" : code);
 

@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/ui/Tabs";
-import Code from "@/ui/Code";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Tabs";
+import Code from "@/components/ui/Code";
 import { nodejs, python } from "@/helpers/documentation-code";
 
 type Props = {};
